@@ -20,6 +20,7 @@
               languages.c.enable = true;
               packages = with pkgs; [
                 clang-tools
+                libcs50
               ];
             }
           ];
