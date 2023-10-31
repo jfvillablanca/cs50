@@ -1,6 +1,14 @@
-BasedOnStyle: LLVM
-IndentWidth: 8
-UseTab: Never
-BreakBeforeBraces: Linux
-AllowShortIfStatementsOnASingleLine: false
-IndentCaseLabels: false
+AllowShortFunctionsOnASingleLine: Empty
+BraceWrapping:
+  AfterCaseLabel: true
+  AfterControlStatement: true
+  AfterFunction: true
+  AfterStruct: true
+  BeforeElse: true
+  BeforeWhile: true
+BreakBeforeBraces: Custom
+ColumnLimit: 132
+IndentCaseLabels: true
+IndentWidth: 4
+SpaceAfterCStyleCast: true
+TabWidth: 4

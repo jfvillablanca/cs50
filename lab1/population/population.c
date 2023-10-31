@@ -29,4 +29,3 @@ int main(void)
     }
     printf("Years: %i\n", no_of_years);
 }
-
