@@ -1,0 +1,1 @@
+../../../lab2/scrabble/README.md
