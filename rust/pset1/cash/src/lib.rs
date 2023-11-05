@@ -8,7 +8,7 @@ pub fn get_int(prompt: &str) -> i32 {
         let mut input_text = String::new();
         match io::stdin().read_line(&mut input_text) {
             Ok(_) => match input_text.trim().parse() {
-                Ok(input_int) => return input_int,
+                Ok(int_input) => return int_input,
                 Err(_) => continue,
             },
             Err(_) => continue,

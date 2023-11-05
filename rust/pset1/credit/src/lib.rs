@@ -8,7 +8,7 @@ pub fn get_long(prompt: &str) -> u64 {
         let mut input_text = String::new();
         match io::stdin().read_line(&mut input_text) {
             Ok(_) => match input_text.trim().parse() {
-                Ok(input_long) => return input_long,
+                Ok(long_input) => return long_input,
                 Err(_) => continue,
             },
             Err(_) => continue,
