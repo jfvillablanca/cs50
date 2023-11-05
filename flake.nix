@@ -46,6 +46,7 @@
           modules = [
             {
               languages.c.enable = true;
+              languages.rust.enable = true;
               packages = with pkgs; [
                 clang-tools
                 libcs50
