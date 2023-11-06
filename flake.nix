@@ -36,6 +36,31 @@
                       jinja2
                     ]);
                 };
+
+              python3 = prev.python3 // {
+                pkgs = prev.python3.pkgs // {
+                  python-cs50 = prev.python3.pkgs.buildPythonPackage rec {
+                    pname = "cs50";
+                    version = "9.3.0";
+                    format = "setuptools";
+                    src = prev.fetchPypi {
+                      inherit pname version;
+                      hash = "sha256-pRMECa0S1kpj/UNtMacLV1psxReXp7Ck1kgjVQrnYkg=";
+                    };
+                    propagatedBuildInputs =
+                      with prev.python3.pkgs; [
+                        flask
+                        packaging
+                        sqlalchemy
+                        sqlparse
+                        termcolor
+                        wheel
+                      ];
+                    doCheck = false;
+                  };
+                };
+              };
+
             })
           ];
         };
@@ -47,11 +72,17 @@
             {
               languages.c.enable = true;
               languages.rust.enable = true;
+              languages.python.enable = true;
               packages = with pkgs; [
                 clang-tools
                 libcs50
                 style50
-              ];
+              ] ++
+              (with pkgs.python3.pkgs; [
+                python-lsp-server
+                python-cs50
+                termcolor
+              ]);
             }
           ];
         };
