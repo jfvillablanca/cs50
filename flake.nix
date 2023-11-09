@@ -83,6 +83,9 @@
                 python-lsp-server
                 python-cs50
                 termcolor
+                pylint
+                black
+                isort
               ]);
             }
           ];
