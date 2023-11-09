@@ -74,6 +74,7 @@
               languages.rust.enable = true;
               languages.python.enable = true;
               packages = with pkgs; [
+                valgrind
                 clang-tools
                 libcs50
                 style50
