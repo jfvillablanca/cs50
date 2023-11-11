@@ -78,6 +78,7 @@
                 clang-tools
                 libcs50
                 style50
+                sqlite
               ] ++
               (with pkgs.python3.pkgs; [
                 python-lsp-server
