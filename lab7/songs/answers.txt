@@ -1,0 +1,5 @@
+If songs.db contains the top 100 songs of one listener from 2018, how would you characterize their audio aura?
+- With a 0.65 energy, 0.48 valence, 0.71 in danceability, and with the top 5 songs and artists that are part of the popular music of 2018, I'd characterize the listener's audio aura as BASIC.
+
+Hypothesize about why the way you’ve calculated this aura might not be very representative of the listener. What better ways of calculating this aura would you propose?
+- Maybe we can include the average tempo as a feature of the characterization of a listener but I still find that to be too raw and would probably require more refinement.
