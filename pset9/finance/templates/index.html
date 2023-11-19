@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Your portfolio
+{% endblock %}
+
+{% block main %}
+    <h2>Cash balance: ${{ balance | usd }}</h2>
+    <h2>Stock valuation: ${{ total_stock_valuation | usd }}</h2>
+    <h2>Total: ${{ total }}</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Current Stock Valuation</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for asset in assets %}
+                <tr>
+                    <td>{{ asset["symbol"] }}</td>
+                    <td>{{ asset["share_count"] }}</td>
+                    <td>$ {{ asset["stock_valuation"] | usd }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

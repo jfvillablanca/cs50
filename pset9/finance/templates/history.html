@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Your transactions
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Date and Time</th>
+                <th>Type</th>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transactions %}
+                <tr>
+                    <td>{{ transaction["transaction_date"] }}</td>
+                    <td>{{ transaction["transaction_type"] }}</td>
+                    <td>{{ transaction["symbol"] }}</td>
+                    <td>{{ transaction["shares"] }}</td>
+                    <td>$ {{ transaction["price"] }}</td>
+                    <td class="font-weight-bold">$ {{ transaction["total"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy stocks
+{% endblock %}
+
+{% block main %}
+    <h2>Current balance: ${{ balance | usd }}</h2>
+    <form action="/buy" method="post">
+        <div class="mb-3">
+            <label for="symbol">Symbol</label>
+            <input autocomplete="off" autofocus required class="form-control mx-auto w-auto" id="symbol" name="symbol" placeholder="e.g. NFLX" type="text">
+        </div>
+        <div class="mb-3">
+            <label for="shares">Shares</label>
+            <input autocomplete="off" autofocus required class="form-control mx-auto w-auto" id="shares" name="shares" placeholder="e.g. 420" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Buy shares</button>
+    </form>
+{% endblock %}

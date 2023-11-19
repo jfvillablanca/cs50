@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell stocks
+{% endblock %}
+
+{% block main %}
+    <form action="/sell" method="post">
+        <div class="mb-3">
+            <label for="symbol">Symbol</label>
+            <select required id="symbol" name="symbol">
+                <option disabled selected>-- Select asset to sell --</option>
+                {% for asset in assets %}
+                    <option value="{{ asset['symbol'] }}" data-share-count="{{ asset['share_count'] }}">{{ asset["symbol"] }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="shares">Shares</label>
+            <input autocomplete="off" required class="form-control mx-auto w-auto" id="shares" name="shares" type="text" disabled>
+        </div>
+        <button class="btn btn-primary" type="submit">Sell shares</button>
+    </form>
+
+    <script>
+        const selectSymbol = document.getElementById("symbol");
+        const inputShares = document.getElementById("shares");
+
+        selectSymbol.addEventListener("change", () => {
+            const selectedIndex = selectSymbol.selectedIndex;
+            if (selectedIndex !== 0) {
+                const selectedOption = selectSymbol.options[selectedIndex];
+                const maxShares = selectedOption.dataset.shareCount;
+                inputShares.placeholder = "Max: " + maxShares;
+                inputShares.disabled = false;
+            } else {
+                inputShares.placeholder = "";
+                inputShares.disabled = true;
+            }
+        });
+    </script>
+{% endblock %}
