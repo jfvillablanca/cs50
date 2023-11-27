@@ -37,6 +37,32 @@
                     ]);
                 };
 
+              presenterm = prev.rustPlatform.buildRustPackage
+                rec {
+                  pname = "presenterm";
+                  version = "0.2.1";
+
+                  src = prev.fetchFromGitHub {
+                    owner = "mfontanini";
+                    repo = "presenterm";
+                    rev = "v${version}";
+                    hash = "sha256-sXVMVU34gxZKGNye6hoyv07a7N7f6UbivA6thbSOeZA=";
+                  };
+
+                  buildFeatures = [ "sixel" ];
+
+                  nativeBuildInputs = with prev; [ makeWrapper ];
+
+                  doCheck = false;
+
+                  postInstall = ''
+                    wrapProgram $out/bin/presenterm \
+                      --prefix LD_LIBRARY_PATH : "${prev.lib.makeLibraryPath [ prev.libsixel ]}"
+                  '';
+
+                  cargoHash = "sha256-PsDaXMws/8hEvAZwClQ4okGuryg1iKg0IBr7Xp2QYBE=";
+                };
+
               python3 = prev.python3 // {
                 pkgs = prev.python3.pkgs // {
                   python-cs50 = prev.python3.pkgs.buildPythonPackage rec {
@@ -74,6 +100,7 @@
               languages.rust.enable = true;
               languages.python.enable = true;
               packages = with pkgs; [
+                presenterm
                 valgrind
                 clang-tools
                 libcs50
