@@ -79,6 +79,7 @@
                 libcs50
                 style50
                 sqlite
+                nodePackages_latest.sql-formatter
               ] ++
               (with pkgs.python3.pkgs; [
                 python-lsp-server
