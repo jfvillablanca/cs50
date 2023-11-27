@@ -115,6 +115,7 @@
                 pylint
                 black
                 isort
+                pytest
 
                 # HACK? 
                 # propagatedBuildInputs of the python-cs50 libs are not part
