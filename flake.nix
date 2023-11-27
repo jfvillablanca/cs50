@@ -88,6 +88,28 @@
                 pylint
                 black
                 isort
+
+                # HACK? 
+                # propagatedBuildInputs of the python-cs50 libs are not part
+                # of the runtime path if these are not included
+                flask
+                packaging
+                sqlalchemy
+                sqlparse
+                termcolor
+                wheel
+                typing-extensions
+
+                # requirements for pset9/finance
+                flask-session
+                requests
+                pytz
+                urllib3
+                charset-normalizer
+                idna
+                certifi
+                cachelib
+                werkzeug
               ]);
             }
           ];
