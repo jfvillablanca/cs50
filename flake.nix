@@ -138,6 +138,16 @@
                 certifi
                 cachelib
                 werkzeug
+
+                # requirements for cs50-python/pset4/emojize
+                emoji
+
+                # requirements for cs50-python/pset4/figlet
+                pyfiglet
+
+                # requirements for cs50-python/pset4/adieu
+                inflect
+                pydantic
               ]);
             }
           ];
